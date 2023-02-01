@@ -1,0 +1,54 @@
+﻿회원 테이블
+
+create table room( 
+id int auto_increment
+bang char(10)
+최소인원 min int
+최대인원 max int
+가격 price int
+객실소개 content text
+상태 state int default 0
+
+예약하기 => reserve테이블
+ 1.입실일		inday date
+ 2.퇴실일		outday date
+ 3.아이디		userid char
+ 4.어떤방		bang_id int
+ 5.인원		inwon int
+ 6.숯		charcoal int
+ 7.bbq		bbq int
+ 8.total금액	total int
+ 9.writeday(예약날짜)writeday date
+10. alter table reserve add state int default 0; (새로 추가한 칼럼){
+	1.예약완료 0
+	2.예약취소 1
+	3.취소철회 2
+	4.취소완료 3
+	5.사용완료 4
+}
+
+create table member(
+id int auto_increment primary key,
+userid char() unique,
+name char,
+pwd char,
+state int default 0 ,
+phone char,
+email char,
+writeday date
+
+create table Gongji(
+id,title,content,writeday,gubun
+
+create table tour(
+id, title, userid, content, fname, readnum, writeday(로그인한 회원만 가능하게)
+
+create table board(
+id int auto_increment primary_key
+title char
+pwd char
+content text
+userid char
+readnum int default 0
+writeday date
+
